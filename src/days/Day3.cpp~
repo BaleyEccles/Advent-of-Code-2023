@@ -100,17 +100,9 @@ int AddPartNum(int x, int y, std::vector<std::vector<int>> Data)
   int sum = 0;
   std::vector<int> Num;
   std::vector<int> CheckedPlaces;
-
-
-  if(Data[x+1][y+1] > -1 && Data[x][y+1] > -1)
-    {
-        GetNum(y,x,-1,-1,Data,CheckedPlaces);//Top Left
-    }
-  else {
-      GetNum(y,x,-1,-1,Data,CheckedPlaces);//Top Left
-      GetNum(y,x,-1,+1,Data,CheckedPlaces);//Top Right
-  }
   
+  GetNum(y,x,-1,+1,Data,CheckedPlaces);//Top Right
+  std::cout << CheckedPlaces[0] << std::endl;
   if(Data[x+1][y-1] > -1 && Data[x][y-1] > -1)
     {
       GetNum(y,x,+1,-1,Data,CheckedPlaces);//Bottom Left
@@ -126,6 +118,7 @@ int AddPartNum(int x, int y, std::vector<std::vector<int>> Data)
 
   GetNum(y,x,+1,+0,Data,CheckedPlaces);//Down
 
+  GetNum(y,x,-1,-1,Data,CheckedPlaces);//Top Right
 
 
 

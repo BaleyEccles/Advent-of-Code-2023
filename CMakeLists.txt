@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(AOC2023)
+
+set(SOURCES src/main.cpp
+	    src/days/Day1.cpp
+	    src/days/Day2.cpp
+	    src/days/Day3.cpp
+	    src/days/Day4.cpp
+)
+	    
+add_executable(main ${SOURCES})
