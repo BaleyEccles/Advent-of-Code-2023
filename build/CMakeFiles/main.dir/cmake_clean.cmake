@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/days/Day3.cpp.o.d"
   "CMakeFiles/main.dir/src/days/Day4.cpp.o"
   "CMakeFiles/main.dir/src/days/Day4.cpp.o.d"
+  "CMakeFiles/main.dir/src/days/Day5.cpp.o"
+  "CMakeFiles/main.dir/src/days/Day5.cpp.o.d"
   "CMakeFiles/main.dir/src/main.cpp.o"
   "CMakeFiles/main.dir/src/main.cpp.o.d"
   "main"

@@ -225,6 +225,30 @@ src/days/Day4.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day4.cpp.s
 .PHONY : src/days/Day4.cpp.s
 
+src/days/Day5.o: src/days/Day5.cpp.o
+.PHONY : src/days/Day5.o
+
+# target to build an object file
+src/days/Day5.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day5.cpp.o
+.PHONY : src/days/Day5.cpp.o
+
+src/days/Day5.i: src/days/Day5.cpp.i
+.PHONY : src/days/Day5.i
+
+# target to preprocess a source file
+src/days/Day5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day5.cpp.i
+.PHONY : src/days/Day5.cpp.i
+
+src/days/Day5.s: src/days/Day5.cpp.s
+.PHONY : src/days/Day5.s
+
+# target to generate assembly for a file
+src/days/Day5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day5.cpp.s
+.PHONY : src/days/Day5.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -270,6 +294,9 @@ help:
 	@echo "... src/days/Day4.o"
 	@echo "... src/days/Day4.i"
 	@echo "... src/days/Day4.s"
+	@echo "... src/days/Day5.o"
+	@echo "... src/days/Day5.i"
+	@echo "... src/days/Day5.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

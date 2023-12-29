@@ -1,6 +1,5 @@
-
 #include "Day4.hpp"
-#if 1
+#if 0
 #define WinNumSize 10
 #define CNumSize 25
 #else
@@ -19,7 +18,7 @@ struct Cards {
 
 void Day4Pt1(){
   std::ifstream input;
-  input.open("/home/baley/Projects/Advent-of-Code-2023/src/days/Day4i2.txt");
+  input.open("/home/baley/Projects/Advent-of-Code-2023/src/days/Day4input.txt");
   std::vector<Cards> CardVec;
   while(input)
     {
@@ -72,7 +71,7 @@ void Day4Pt1(){
 	  CardVec.push_back(C);
 	}
     }
-  /*
+  /*Part 1
   int points = 0;
   for(int i = 0; i < CardVec.size(); i++)
     {
@@ -101,34 +100,26 @@ void Day4Pt1(){
     {
       CardVec[i].GameNum = i + 1;
     }
+  std::vector<std::vector<int>> CardIndexAdd;
   for(int i = 0; i < CardVec.size(); i++)
     {
       std::sort(CardVec[i].WinNum.begin(), CardVec[i].WinNum.end());
       std::sort(CardVec[i].PlyNum.begin(), CardVec[i].PlyNum.end());
 
       std::vector<int> Overlap;
-
-      for(int num : CardVec[i].WinNum)
+      int k = 0;
+      for(int j = 0; j < CardVec[i].WinNum.size(); j++)
 	{
-	if (std::binary_search(CardVec[i].PlyNum.begin(), CardVec[i].PlyNum.end(), num))
+	if (std::binary_search(CardVec[i].PlyNum.begin(), CardVec[i].PlyNum.end(), CardVec[i].WinNum[j]))
 	    {
-	      Overlap.push_back(num);
+	      k++;
+	      Overlap.push_back(CardVec[i].GameNum + k);// vector that contains the index of the extra card to add
 	      //std::cout << "Point: " << num << std::endl;
 	    }
 	}
-      
-      if(Overlap.size() > 0)
-	{
-	  for(int p = 0; p < Overlap.size(); p++)
-	    {
-	      Cards CardT = CardVec[CardVec[i].GameNum + p];
-	      //CardT.GameNum = CardVec[i].GameNum;
-	      CardVec.push_back(CardT);
-	      //std::cout << "N C: " << CardT.GameNum << i << std::endl;
-	    }
-	}
-      //std::cout << Overlap.size() << std::endl;
+      CardIndexAdd.push_back(Overlap);
       Overlap.clear();
+      std::cout << Overlap.size() <<std::endl;
       std::cout << "Card " << CardVec[i].GameNum;
       for(int p = 0; p < CardVec[i].WinNum.size(); p++)
 	{
@@ -141,6 +132,25 @@ void Day4Pt1(){
 	}
       std::cout << "" << std::endl;
     }
+
+  std::vector<int> EncIndexes(CardIndexAdd.size(),1);
+  for(int i = 0; i < CardIndexAdd.size(); i++)
+    {
+      for(int j = 0; j < CardIndexAdd[CardIndexAdd.size() - i - 1].size(); j++)
+	{
+	  EncIndexes[i] += EncIndexes[CardIndexAdd[CardIndexAdd.size()-i - 1][j]];
+	  std::cout << EncIndexes[CardIndexAdd[CardIndexAdd.size() - i -1][j]] << " ";
+
+	}
+      std::cout << "" << std::endl;
+    }
+  int ans = 0;
+  for(int i = 0; i < EncIndexes.size(); i++)
+    {
+      std::cout << "I: " << EncIndexes[i] << std::endl;
+      ans += EncIndexes[i];
+    }
+  std::cout << "ans: " << ans << std::endl;
   /*
   for(int i = 0; i < CardVec.size(); i++)
     {

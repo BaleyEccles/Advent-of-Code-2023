@@ -1,7 +1,12 @@
 
 #include "Day4.hpp"
+#if 1
 #define WinNumSize 10
 #define CNumSize 25
+#else
+#define WinNumSize 5
+#define CNumSize 8
+#endif
 void Day4(){
   Day4Pt1();
 }
@@ -14,7 +19,7 @@ struct Cards {
 
 void Day4Pt1(){
   std::ifstream input;
-  input.open("/home/baley/Projects/Advent-of-Code-2023/src/days/Day4input.txt");
+  input.open("/home/baley/Projects/Advent-of-Code-2023/src/days/Day4i2.txt");
   std::vector<Cards> CardVec;
   while(input)
     {
@@ -124,6 +129,33 @@ void Day4Pt1(){
 	}
       //std::cout << Overlap.size() << std::endl;
       Overlap.clear();
+      std::cout << "Card " << CardVec[i].GameNum;
+      for(int p = 0; p < CardVec[i].WinNum.size(); p++)
+	{
+	  std::cout << " " << CardVec[i].WinNum[p];
+	}
+      std::cout << " |";
+      for(int p = 0; p < CardVec[i].PlyNum.size(); p++)
+	{
+	  std::cout << " " << CardVec[i].PlyNum[p];
+	}
+      std::cout << "" << std::endl;
     }
+  /*
+  for(int i = 0; i < CardVec.size(); i++)
+    {
+      std::cout << "Card " << CardVec[i].GameNum;
+      for(int p = 0; p < CardVec[i].WinNum.size(); p++)
+	{
+	  std::cout << " " << CardVec[i].WinNum[p];
+	}
+      std::cout << " |";
+      for(int p = 0; p < CardVec[i].PlyNum.size(); p++)
+	{
+	  std::cout << " " << CardVec[i].PlyNum[p];
+	}
+      std::cout << "" << std::endl;
+    }
+  */
   std::cout << "Cards: " << CardVec.size() << std::endl;
 }

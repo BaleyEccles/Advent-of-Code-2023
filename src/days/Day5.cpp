@@ -1,0 +1,170 @@
+#include "Day4.hpp"
+
+struct Conversion {
+  int DestStart;
+  int SrcStart;
+  int Range;
+  std::vector<int> Dest;
+  std::vector<int> Src;
+};
+
+
+std::vector<int> GetNumbers(const std::string& Line)
+{
+
+  std::vector<int> numbers;
+
+  // Process the string without using streams
+  size_t pos = 0;
+  while (pos < Line.size()) {
+    size_t spacePos = Line.find(' ', pos);
+    if (spacePos == std::string::npos) {
+      spacePos = Line.size();
+    }
+    
+    std::string numStr = Line.substr(pos, spacePos - pos);
+    int num = std::stoi(numStr);
+    numbers.push_back(num);
+    
+    pos = spacePos + 1;
+  }
+  
+  // Print the vector
+  std::cout << "Vector of numbers: ";
+  for (int n : numbers) {
+    std::cout << n << " ";
+  }
+  std::cout << std::endl;
+  return numbers;
+}
+
+
+
+void Day5()
+{
+  std::ifstream input;
+  input.open("/home/baley/Projects/Advent-of-Code-2023/src/days/Day5i1.txt");
+  std::vector<int> Seeds;
+  Conversion SeedToSoil;
+  Conversion SoilToFertilizer;
+  Conversion FertilizerToWater;
+  Conversion WaterToLight;
+  Conversion LightToTemprature;
+  Conversion TempratureToHumidity;
+  Conversion HumidityToLocation;
+  
+  while(input)
+    {
+      std::string line;
+      std::getline(input,line);
+      //std::cout << line << std::endl;
+      if(line == "seeds:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      Seeds = GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      if(line == "seed-to-soil map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      if(line == "soil-to-fertilizer map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      if(line == "fertilizer-to-water map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      if(line == "water-to-light map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      if(line == "light-to-temperature map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      if(line == "temperature-to-humidity map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	}
+      if(line == "humidity-to-location map:")
+	{
+	  std::string Seedline;
+	  std::getline(input, Seedline);
+	  //std::cout << Seedline << std::endl;
+	  while(isdigit(Seedline[0]))
+	    {
+	      GetNumbers(Seedline);
+	      Seedline.clear();
+	      std::getline(input, Seedline);
+	    }
+	    
+	}
+      
+      
+    }
+}
+
+
+

@@ -7,6 +7,7 @@ set(SOURCES src/main.cpp
 	    src/days/Day2.cpp
 	    src/days/Day3.cpp
 	    src/days/Day4.cpp
+	    src/days/Day5.cpp
 )
 	    
 add_executable(main ${SOURCES})
