@@ -1,0 +1,17 @@
+#include "Day6.hpp"
+
+
+void Day6()
+{
+  std::ifstream input;
+  input.open("/home/baley/Projects/Advent-of-Code-2023/src/days/Day6i1.txt");
+  while(input)
+    {
+      std::string line;
+      std::getline(input,line);
+
+    }
+  
+  
+
+}

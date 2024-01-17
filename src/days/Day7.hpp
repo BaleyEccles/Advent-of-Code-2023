@@ -9,9 +9,9 @@
 #include <math.h>
 
 
-std::vector<int> GetNumbers(std::string Line);
-void GetConversion(std::vector<int> &conversion, std::vector<std::vector<int>> &data);
-void Day5();
+
+
+void Day7();
 
 
 
