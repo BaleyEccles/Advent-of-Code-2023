@@ -5,6 +5,11 @@
 #include "days/Day5.hpp"
 #include "days/Day6.hpp"
 #include "days/Day7.hpp"
+#include "days/Day8.hpp"
+#include "days/Day9.hpp"
+#include "days/Day10.hpp"
+#include "days/Day12.hpp"
+
 
 
 #include <ostream>
@@ -12,7 +17,7 @@
 
 int main()
 {
-  Day7();
-  std::cout << "test1" << std::endl;
+  Day10();
+  std::cout << "Done" << std::endl;
   //while(true){};
 }
