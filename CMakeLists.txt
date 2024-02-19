@@ -13,7 +13,9 @@ set(SOURCES src/main.cpp
 	    src/days/Day8.cpp
 	    src/days/Day9.cpp
 	    src/days/Day10.cpp
-	    src/days/Day12.cpp	
+	    src/days/Day11.cpp	
+	    src/days/Day12.cpp
+	    src/days/Day13.cpp	
 	    )
 	    
 add_executable(main ${SOURCES})

@@ -2,7 +2,7 @@
 
 void Day10() {
   std::ifstream input;
-  input.open("/home/baley/Projects/Advent-of-Code-2023-new/src/days/Day10i3.txt");
+  input.open("/home/baley/Projects/Advent-of-Code-2023-new/src/days/Day10i2.txt");
   
 
   std::vector<std::vector<char>> Data;
@@ -208,8 +208,7 @@ void Day10() {
   // if there are three in a row, we cannot do this and must add some edge case.
   // .L-J...
   //  IOI   | Here the ... would be counted as in      
-  // To counteract this problem we will condense all the pipes into one:
-  // .I... | this will work with any ammount of pipes and we dont have to worry about it disconntecting above and bellow, beacause we dont need to.
+  // Need to condense the L--7,F--J into one |
   std::vector<std::vector<char>> Map;
   int maxX = Data[0].size()+1;
   int maxY = Data.size()+1;
@@ -227,14 +226,48 @@ void Day10() {
     }
   }
   std::cout << "" << std::endl;
+  bool IsIn, condenseL, condenseF;
+  int InAns = 0;
   for(int i = 0; i < maxY; i++) {
+    IsIn = false;
     for(int x = 0; x < maxX; x++) {
       int y = maxY-i-1;
+      char v = Map[y][x];
+      if(v == 'L') {
+	condenseL = true;
+      }
+      if(v == '7' && condenseL) {
+	condenseL = false;
+	IsIn = !IsIn;
+      }
+      if(v == 'J' && condenseL) {
+	condenseL = false;
+      }
+      
+      if(v == 'F') {
+	condenseF = true;
+      }
+      if(v == 'J' && condenseF) {
+	condenseF = false;
+	IsIn = !IsIn;
+      }
+      if(v == '7' && condenseF) {
+	condenseF = false;
+      }
+
+      if(v == '|') {
+	IsIn = !IsIn;
+      }
+      
+      if(IsIn && v == '.') {
+	InAns += 1;
+	Map[y][x] = '0';
+      }
       std::cout << Map[y][x];
     }
     std::cout << "" << std::endl;
   }
-  
+  std::cout << InAns << std::endl;
   
   /*
     std::vector<std::vector<int>> Map;

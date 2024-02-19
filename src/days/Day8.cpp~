@@ -1,0 +1,128 @@
+#include "Day8.hpp"
+#define Part2
+
+bool IsLastZ(std::vector<std::string> Starts) {
+  for(auto str : Starts) {
+    if(str[2] != 'Z') {
+      return false;
+    }
+  }
+  return true;
+}
+
+void Day8()
+{
+  std::ifstream input;
+  input.open("/home/baley/Projects/Advent-of-Code-2023-new/src/days/Day8i3.txt");
+
+  std::vector<std::tuple<std::string, std::string, std::string>> Data;
+  std::string Direction = "NULL";
+    int idx = 0;  
+  while(input) {
+    std::string line;
+    std::getline(input,line);
+    //std::cout << line << std::endl;
+
+
+    std::istringstream iss1(line);
+    std::string Dir;
+    while (iss1 >> Dir) {
+      if( Direction == "NULL") {
+	Direction = Dir;
+	//std::cout << Direction << std::endl;
+      }
+    }
+
+    std::istringstream iss2(line);
+
+    std::string i, j, k;
+    while (iss2 >> i >> j >> k) {
+
+      Data.push_back(std::tuple<std::string, std::string, std::string>{i, j, k});
+      //std::cout << "i: " << std::get<0>(Data[idx]) << ", j: " << std::get<1>(Data[idx]) << ", k: " << std::get<2>(Data[idx]) << std::endl;
+      idx += 1;
+    }
+  }
+  int Steps = 0;
+#ifdef Part2
+  // Get all places that have a A in the last slot
+  std::vector<std::string> Starts;
+  for(auto tup : Data) {
+    if(std::get<0>(tup)[2] == 'A') {
+      Starts.push_back(std::get<0>(tup));
+      std::cout << std::get<0>(tup) << std::endl;
+    }
+  }
+
+  
+  idx = -1;
+  while(!IsLastZ(Starts)) { //Check if all the places have Z in their last slot
+    idx++;
+    Steps++;
+
+    // itterate through all the places once
+    for(auto Location : Starts) {
+      //std::cout << Location << std::endl; 
+      if(idx == Direction.size()) {
+	std::cout << "Loop" << std::endl;
+	idx = 0;
+      }
+      //std::cout << Direction[idx] << std::endl;
+      if(Direction[idx] == 'R') {
+	for(auto tup : Data) {
+	  if(std::get<0>(tup) == Location) {
+	    //std::cout << "R: " <<  std::get<2>(tup) << std::endl;
+	    Location = std::get<2>(tup);
+	    goto EXIT;
+	  }
+	}
+      } else if(Direction[idx] == 'L') {
+	for(auto tup : Data) {
+	  if(std::get<0>(tup) == Location) {
+	    //std::cout << "L: " <<  std::get<1>(tup) << std::endl;
+	    Location = std::get<1>(tup);
+	    goto EXIT;
+	  }
+	}
+      }
+    EXIT:
+    }
+  }
+#else
+  std::string Location = "AAA";
+
+  idx = -1;
+  while(Location != "ZZZ") {
+    idx++;
+    Steps++;
+
+    //std::cout << Location << std::endl; 
+    if(idx == Direction.size()) {
+      //std::cout << "Loop" << std::endl;
+      idx = 0;
+    }
+    //std::cout << Direction[idx] << std::endl;
+    if(Direction[idx] == 'R') {
+      for(auto tup : Data) {
+	if(std::get<0>(tup) == Location) {
+	  //std::cout << "R: " <<  std::get<2>(tup) << std::endl;
+	  Location = std::get<2>(tup);
+	  goto EXIT;
+	}
+      }
+    } else if(Direction[idx] == 'L') {
+      for(auto tup : Data) {
+	if(std::get<0>(tup) == Location) {
+	  //std::cout << "L: " <<  std::get<1>(tup) << std::endl;
+	  Location = std::get<1>(tup);
+	  goto EXIT;
+	}
+      }
+    }
+  EXIT:  
+  }
+#endif
+  std::cout << Steps << std::endl;
+}
+
+

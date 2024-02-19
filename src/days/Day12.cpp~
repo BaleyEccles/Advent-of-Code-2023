@@ -1,0 +1,24 @@
+#include "Day12.hpp"
+
+void Day9() {
+  std::ifstream input;
+  input.open("/home/baley/Projects/Advent-of-Code-2023-new/src/days/Day9i2.txt");
+  std::vector<std::vector<int>> Data;
+
+  int idx = 0;  
+  while(input) {
+    std::string line;
+    std::getline(input,line);
+    //std::cout << line << std::endl;
+
+    std::istringstream iss(line);
+    Data.push_back(std::vector<int>{});
+    int i;
+    while (iss >> i) {
+      Data[idx].push_back(i);
+      //std::cout << i << std::endl;
+    }
+    idx += 1;
+  }
+  Data.pop_back();
+}

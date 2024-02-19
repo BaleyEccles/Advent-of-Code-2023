@@ -177,6 +177,30 @@ src/days/Day10.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day10.cpp.s
 .PHONY : src/days/Day10.cpp.s
 
+src/days/Day11.o: src/days/Day11.cpp.o
+.PHONY : src/days/Day11.o
+
+# target to build an object file
+src/days/Day11.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day11.cpp.o
+.PHONY : src/days/Day11.cpp.o
+
+src/days/Day11.i: src/days/Day11.cpp.i
+.PHONY : src/days/Day11.i
+
+# target to preprocess a source file
+src/days/Day11.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day11.cpp.i
+.PHONY : src/days/Day11.cpp.i
+
+src/days/Day11.s: src/days/Day11.cpp.s
+.PHONY : src/days/Day11.s
+
+# target to generate assembly for a file
+src/days/Day11.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day11.cpp.s
+.PHONY : src/days/Day11.cpp.s
+
 src/days/Day12.o: src/days/Day12.cpp.o
 .PHONY : src/days/Day12.o
 
@@ -200,6 +224,30 @@ src/days/Day12.s: src/days/Day12.cpp.s
 src/days/Day12.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day12.cpp.s
 .PHONY : src/days/Day12.cpp.s
+
+src/days/Day13.o: src/days/Day13.cpp.o
+.PHONY : src/days/Day13.o
+
+# target to build an object file
+src/days/Day13.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day13.cpp.o
+.PHONY : src/days/Day13.cpp.o
+
+src/days/Day13.i: src/days/Day13.cpp.i
+.PHONY : src/days/Day13.i
+
+# target to preprocess a source file
+src/days/Day13.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day13.cpp.i
+.PHONY : src/days/Day13.cpp.i
+
+src/days/Day13.s: src/days/Day13.cpp.s
+.PHONY : src/days/Day13.s
+
+# target to generate assembly for a file
+src/days/Day13.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/days/Day13.cpp.s
+.PHONY : src/days/Day13.cpp.s
 
 src/days/Day2.o: src/days/Day2.cpp.o
 .PHONY : src/days/Day2.o
@@ -432,9 +480,15 @@ help:
 	@echo "... src/days/Day10.o"
 	@echo "... src/days/Day10.i"
 	@echo "... src/days/Day10.s"
+	@echo "... src/days/Day11.o"
+	@echo "... src/days/Day11.i"
+	@echo "... src/days/Day11.s"
 	@echo "... src/days/Day12.o"
 	@echo "... src/days/Day12.i"
 	@echo "... src/days/Day12.s"
+	@echo "... src/days/Day13.o"
+	@echo "... src/days/Day13.i"
+	@echo "... src/days/Day13.s"
 	@echo "... src/days/Day2.o"
 	@echo "... src/days/Day2.i"
 	@echo "... src/days/Day2.s"

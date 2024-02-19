@@ -44,26 +44,47 @@ void Day12() {
     }
     std::cout << " #p" << std::endl;
   }
+
+  Plan:
+  calculate all the possible configs given the numbers and size
+  Then removed all the configs that dont match the given data.
+  
+  ?###???????? 3,2,1
+  We would get all the configs of size 12 that have 3,2,1
+  .###.##.#...
+  .###.##..#..
+  .###.##...#.
+  .###.##....#
+  .###..##.#..
+  .###..##..#.
+  .###..##...#
+  .###...##.#.
+  .###...##..#
+  .###....##.#
+
+  ..###.##.#..
+  ..###.##..#.
+  ..###.##...#
+  ..###..##.#.
+  ..###..##..#
+  ..###...##.#
+
+  ...###.##.#.
+  ...###.##..#
+  ...###..##.#
+
+  ....###.##.#
+  The last three set of configs dont sattisfy the given data, so we can remove them.
+  
   */
-  // 5,2,1
-  // ???###????????
-  // we can simplify this into
-  // 5,2,1
-  // .#####????????
-
-  // 1,1,4,1,2,1
-  // ???????##??.???????
-  //
-
-  // 3,3
-  // ????#????
   
   enum Types {
     dot, hash, q
   };
-  std::vector<std::vector<int>> SpringsInt;
+  
+  std::vector<std::vector<Types>> SpringsInt;
   for(int i = 0; i < SpringsStr.size(); i++) {
-    SpringsInt.push_back(std::vector<int>{});
+    SpringsInt.push_back(std::vector<Types>{});
     for(int j = 0; j < SpringsStr[i].size(); j++) {
       if(SpringsStr[i][j] == '.') {
 	SpringsInt[i].push_back(dot);
